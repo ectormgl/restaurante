@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const db = require('../db/db.js');
 const router = express.Router();
 const cookieParser = require('cookie-parser')
+const moment = require('moment');
 const secretKey = 'fen*$fne28$b2';
 router.use(cookieParser());
 var tkn = false
@@ -16,6 +17,7 @@ router.get("/", (req, res) => {
     
     }
 });
+
 
 router.get("/loginreq", (req, res)=>{
     res.render("login-required")
@@ -106,7 +108,6 @@ router.post("/auth/login", (req, res) => {
 
 function authenticateToken(req, res, next) {
     const token = req.cookies.token;
-    console.log("AQUII -----------------"+token)
     if (!token) return res.render('negative');
 
     jwt.verify(token, secretKey, (err, user) => {
@@ -142,25 +143,33 @@ router.get('/reserva', authenticateToken, (req, res) =>{
 })
 
 
+
 router.post('/reservar', authenticateToken, (req, res) => {
-    const { data, horario } = req.body;
-    db.query('SELECT * FROM reservas WHERE data = ? AND horario = ?', [data, horario], (err, results) => {
-        if (err) return res.status(500).send('Erro no servidor');
+    const { data, qtd} = req.body;
+    const userId = req.user.id; // Obtém o ID do usuário autenticado
+    if (!moment(data, 'YYYY-MM-DD').isValid()) {
+        return res.render('reserva', { message: "Você precisa selecionar uma data válida", success: false });
+    }
+    db.query('SELECT * FROM reservation WHERE datas = ? AND user_id = ?', [data, userId], (err, results) => {
+        
+        if (err) return  res.render('reserva', {message: "Tente novamente", success: false});
 
+        
+        //console.log(data, "==============", results)
         if (results.length > 0) {
-            // Horário já está reservado
-            return res.send('Horário já reservado, escolha outro horário.');
-        } else {
-            // Horário está disponível, faça a reserva
-            db.query('INSERT INTO reservas (data, horario, id_usuario) VALUES (?, ?, ?)', [data, horario, req.user.id], (err, result) => {
-                if (err) return res.status(500).send('Erro ao realizar reserva.');
-
-                res.send('Reserva realizada com sucesso!');
-            });
+            return res.render('reserva', {message: "Você já fez uma reserva para essa data", success: false});
         }
+        if (!qtd || typeof qtd === undefined || qtd === null ) {
+            return res.render('reserva', {message: "Você precisa selecionar o tipo de mesa", success: false})};
+            // Horário está disponível, faça a reserva
+        db.query('INSERT INTO reservation (user_id, datas, ttype) VALUES (?, ?, ?)', [userId, data, qtd], (err, result) => {
+                if (err) return res.status(500).send('Erro ao realizar reserva.' + err);
+
+                res.render('reserva', {message: "Reserva feita com sucesso", success: true});
+            });
+        
     });
 });
-
 
 
 ////////////////////////////
@@ -168,4 +177,7 @@ router.post('/reservar', authenticateToken, (req, res) => {
 
 
 
+router.use((req, res) => {
+    res.status(404).render('notFound'); // Renderiza a página de erro 404
+});
 module.exports = router;

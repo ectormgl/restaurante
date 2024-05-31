@@ -236,6 +236,7 @@ h1{
 
 
   body {
+    @import url('/assets/notFound.jpg');
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;

@@ -61,6 +61,132 @@
     width: 125px;
     height: 125px;
   }
+  @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+        body {
+            font-family: 'Spartan', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background-color: #2222221e;
+            padding: 1em 0;
+        }
+        #responsive{
+            display: none;
+        }
+        .everyback {
+            width: 100%;
+            height: 100%;
+            background-color: sienna;
+            padding: 2em;
+            box-sizing: border-box;
+        }
+
+        .reservation-container {
+            background-color: sienna;
+            padding: 2em;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .reservation-container h2 {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        #overlayContent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+        }
+
+        #closeButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        #showOverlay {
+            background-color: #773200;
+            font-family: "Spartan", sans-serif;
+            border: 0;
+            color: #ffff;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 80px;
+            background: #773200;
+            box-shadow: 0 5% 15% rgba(0, 0, 0, 0.06);
+            z-index: 999;
+            position: sticky;
+            top: 0;
+            left: 0;
+            height: 10%;
+        }
+
+        #navbar {
+            display: flex;
+            align-content: center;
+            justify-content: flex-end;
+        }
+
+        #navbar li {
+            list-style: none;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        #navbar li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            transition: 0.3s ease;
+        }
+
+        #navbar li a:hover {
+            color: #f27a25;
+            font-size: 17px;
+        }
+
+        #navbar li a.active {
+            color: white;
+            font-size: 17px;
+        }
+
+        #navbar li a.active::after {
+            content: "";
+            width: 30%;
+            height: 2px;
+            background: #f27a25;
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -69,90 +195,45 @@
         <a href="#"><img class="logo" src="https://cdn.worldvectorlogo.com/logos/outback-steakhouse-3.svg" ></a>
         <div >
             <ul id="navbar">
-                <li><a href="/">Inicio</a></li>
+                <li><a class="here" href="/">Home</a></li>
                 <li><a href="/views/cardapio">Cardápio</a></li>
                 <li><a href="/reserva">Reservas</a></li>
                 <li><a href="/views/about">Sobre nós</a></li>
-                <li>{{#if tkn}}
-                    <form action="/logout" method="POST">
-                    <button type="submit" >Sair</button>
-                     </form>
-                {{else}}
-                    <a href="/views/login" id="signin">Login<i class="bi bi-person-fill"></i></a>
-                 
-                {{/if}}</li>
             </ul>
         </div>
     </section>
 
-    <section id="hero">
-    <div id="responsive">
-<a id="nav-toggle" title="Toggle Navigation" onclick="toggleNav()"> <i class="toggle-bar fa fa-bars"></i></a> <!--Toggle Button-->
-
-<div id="sidebar" class="">
-    
-    <ul>
-        <img src="https://cdn.worldvectorlogo.com/logos/outback-steakhouse-3.svg" alt="Outback Logo" title="Outback Logo" / style="width: 125px; height:60px;">
-        <li><a class="here" href="/">Home</a></li>
-        <li><a href="/views/cardapio">Cardápio</a></li>
-        <li><a href="/reserva">Reservas</a></li>
-        <li><a href="/views/about">Sobre nós</a></li>
-        
-        
-        <div class="contact-info">
-            <p>Unama, Alcindo Cacela, Bélem</p>
+</div>
+        <div class="reservation-container">
             
-        </div>
-        <p class="text-center social-links">
-            <a href="https://www.facebook.com/outbackbrasil/"><i class="fa fa-facebook" ></i></a>
-            <a href="https://www.instagram.com/outbackbrasil/"><i class="fa fa-instagram"></i></a>
-            <a href="https://x.com/OutbackBrasil"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/company/outbackbrasil/"><i class="fa fa-linkedin"></i></p></a>
-    </ul>
-</div>
-</div>
-        <section id="welcome-message">
-        <h1>Bem-vindo!</h1>
-        <p>Aqui, cada refeição é uma experiência inesquecível.</p>
-        <p></p>Descubra o prazer de comer bem!</p>
-    </section>
-        <a href="/views/cardapio"><button>Cadárpio</button></a>
-    </section>
-    
-    <section class="history">
-        <div class="history-content">
-            <div class="history-text">
-                     <h2 id="moveColor">Nossa História</h2>
-                     <p id="changeColor">Bem-vindo ao Outback! Somos um grupo de estudantes apaixonados por culinária que decidiu trazer o sabor autêntico da Austrália para nossa comunidade acadêmica.  </p>
-                </div>
-                <div class="history-image">
-                <img src="/css/24.png" alt="Nossa História">
-            </div>
-        </div>
-    </section>    
-
-    <section class="additional-content">
-    <div class="background-image">
-        <div class="overlay"></div>
-    </div>
-    <div class="content-overlay">
-        <div class="opening-hours">
-            <h2>Horários de Funcionamento</h2>
-            <div class="hours">
-                <div class="day">
-                    <p>Segunda a Sexta:</p>
-                    <p>9:00 - 22:00</p>
-                </div>
-                <div class="day">
-                    <p>Sábado a Domingo:</p>
-                    <p>11:00 - 22:00</p>
-                </div>
-            </div>
+            <h2>Seu Pedido já está sendo preparado! </h1>
+            <h3> Vá até o restaurante para pegar o seu pedido dentro de 40 minutos!       </h2>
+           
         </div>
     </div>
-</section>
 
-    <div class="elfsight-app-c1b699b9-6a6b-4bbe-b2f0-83c50f6bcd62" data-elfsight-app-lazy></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <footer class="section-p1">
 
         <div class="col">

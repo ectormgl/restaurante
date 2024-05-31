@@ -8,488 +8,245 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="/css/i_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="/assets/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="/assets/bootstrap/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/Pop-Out-Vertical-Nav-w-Footer--Social-Links--1-Vertical-Nav.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/Pop-Out-Vertical-Nav-w-Footer--Social-Links--1.css">
+    <script src="/assets/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/bootstrap/js/Pop-Out-Vertical-Nav-w-Footer--Social-Links--1-Vertical-Nav.js"></script>
+    <style>
+        h2{
+            color: white;
+        }
+        #responsive{
+            display: none;
+        }
+        @media (max-width: 768px) {
+            #header {
+                display: none;
+            }
+            #responsive {
+                display: block;
+                margin-top: 15px;
+                margin-left: 20px;
+            }
+            #welcome-message{
+                margin-top: 10%;
+            }
+            
+        }
+        
+        .logo{
+            width: 80px;
+            height: 80px;
+            }
+            #viewCart{
+                background-color: #773200;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 600;
+                color: #fff;
+                transition: 0.3s ease;
+                background-color: #773200;
+                border: 0;
+            }
+        
+    </style>
 </head>
 <body>
-    <section id="header">
-        <a href="#"><img class="logo"></a>
-
+        <section id="header">
+        <a href="#"><img class="logo" src="https://cdn.worldvectorlogo.com/logos/outback-steakhouse-3.svg" ></a>
         <div >
             <ul id="navbar">
-                <li><a class="active" href="/">Home</a></li>
-                <li><a href="/views/interest">Pontos de Interesse</a></li>
-                <li><a href="/views/pontos-turistico">Pontos Turísticos</a></li>
-                <li><a href="/views/about">About Us</a></li>
-                <li><a href="/views/login">Sign In <i class="bi bi-person-fill"></i></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/views/interest">Cardápio</a></li>
+                <li><a href="/reserva">Reservas</a></li>
+                <li><form action="/deliver" method="post"><button type="submit" id="fazerPedido">Fazer Pedido</button></form></li>
+                <li> 
+                                                                <button id="viewCart"><svg xmlns="http://www.w3.org/2000/svg"  width="30" height="30" fill="#ffffff" class="bi bi-cart-dash svg-white" viewBox="0 0 16 16">
+                                            <path d="M6.5 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z"/>
+                                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                                            </svg></button>
+                </li>
+                
             </ul>
         </div>
-
     </section>
+    <div id="responsive">
+<a id="nav-toggle" title="Toggle Navigation" onclick="toggleNav()"> <i class="toggle-bar fa fa-bars"></i></a> <!--Toggle Button-->
+
+<div id="sidebar" class="">
+    
+    <ul>
+        <img src="https://cdn.worldvectorlogo.com/logos/outback-steakhouse-3.svg" alt="Outback Logo" title="Outback Logo" / style="width: 125px; height:60px;">
+        <li><a class="here" href="/">Home</a></li>
+        <li><a href="/views/cardapio">Cardápio</a></li>
+        <li><a href="/reserva">Reservas</a></li>
+        <li><a href="/views/about">Sobre nós</a></li>
+        
+        
+        <div class="contact-info">
+            <p>Unama, Alcindo Cacela, Bélem</p>
+            
+        </div>
+        <p class="text-center social-links">
+            <a href="https://www.facebook.com/outbackbrasil/"><i class="fa fa-facebook" ></i></a>
+            <a href="https://www.instagram.com/outbackbrasil/"><i class="fa fa-instagram"></i></a>
+            <a href="https://x.com/OutbackBrasil"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/outbackbrasil/"><i class="fa fa-linkedin"></i></p></a>
+    </ul>
+</div>
+</div>
+<div id="ContainerPedido"></div>
     <section id="content">
         <section id="product1" class="section-p1">
-            <h2> Belém's SuperMarkets</h2>
-            <p>Most Popular Supermarkets in Belém</p>
-            <div class="pro-container">
-                <div class="pro">
-                    <img src="/assets/lider-super_00539426_0_-3_cropped.webp" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Supermercado Líder</h4><br>
-                        <h7>Endereço: Av. Senador Lemos, 1801 - Umarizal, Belém - PA, 66055-00
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 06:00 às 22:00</h7><br><br>
-                        <h7>Contato:(91) 3239-9600</h7>
-                        <a href="https://www.grupolideronline.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/Captura de tela 2024-04-24 000112.png" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Supermercado Mais Barato</h4><br>
-                        <h7>Av. Gov. José Malcher, 2388 - São Brás, Belém - PA, 66060-000
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 07:30 às 20:30</h7><br><br>
-                        <h7>Contato: (91)3204-8355</h7>
-                        <a href="http://www.grupomaisbarato.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/Senador-Lemos-1024x683 (1).jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Mateus Supermercados</h4><br>
-                        <h7>Endereço: Rod. BR-316, km 1, s/n - Tenoné, Belém - PA, 66125-000
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 07:00 às 22:00</h7><br><br>
-                        <h7>Contato: (91)3244-4900</h7>
-                        <a href="https://www.grupomateus.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/Atacadao-inaugura-segunda-unidade-de-autosservico-em-Recife (1).jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Supermercado Atacadão</h4><br>
-                        <h7> Rod. Augusto Montenegro, S/N - Agulha, Belém - PA, 66811-000
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 08:00 às 18:00</h7><br><br>
-                        <h7>Contato:  (91)3321-9884</h7>
-                        <a href="https://www.atacadao.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/sobre_grupo.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Supermercado Formosa
-                        </h4><br>
-                        <h7>Endereço: Av. Conselheiro Furtado, 2536 - Cremação, Belém - PA, 66040-105
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 06:00 às 22:00</h7><br><br>
-                        <h7> Contato: (91)3236-1525</h7>
-                        <a href="https://www.formosa.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/assai.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Supermercado Assaí</h4><br>
-                        <h7>Rodovia Mário Covas, 69 Coqueiro - Belém Pará - 66650-000
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Segunda a Sábado: das 07:00 às 22:00
-                            Domingos e Feriados: das 07:00 às 18:00</h7><br><br>
-                        <h7>Contato: (91)3284-1550</h7>
-                        <a href="https://www.formosa.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/PB-BR (1).jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Supermercado Preço Baixo</h4><br>
-                        <h7>Av. Senador Lemos, 2842 - Sacramenta, Belém - PA
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Segunda a Sábado: das 07:00 às 22:00 
-                            Domingos e Feriados: 07h30 às 13h30</h7><br><br>
-                        <h7>Contato: (91) 3225-0977</h7>
-                        <a href="https://precobaixoatacadista.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/havan1.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Havan Belém</h4><br>
-                        <h7>Rod. Augusto Montenegro, 2216 - Mangueirão, Belém - PA, 66640-000
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 09:00 às 21:00</h7><br><br>
-                        <h7>Contato:(91) 3182-8785                    </h7>
-                        <a href="https://www.havan.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="product1" class="section-p1">
-            <h2> Entertainment Venues</h2>
-            <p>Most Popular entertainment venues in Belém</p>
-            <div class="pro-container">
-                <div class="pro">
-                    <img src="/assets/utinga.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Parque Estadual do Utinga</h4><br>
-                        <h7>Endereço: Av. João Paulo II, s/n - Curió-Utinga, Belém - PA, 66115-000</h7><br><br>
-                        <h7> Horário de Funcionamento: Diariamente, das 08:00 às 17:00</h7><br><br>
-                        <h7>Serviços Oferecidos: Trilhas, observação da natureza, áreas para piquenique</h7><br><br>
-                        <h7>Contato:(91) 3204-3297</h7>
-                        <a href="https://www.parquedoutinga.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/sobreoshopping.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Boulevard Shopping Belém</h4><br>
-                        <h7>Endereço: Av. Visconde de Souza Franco, 776 - Reduto, Belém - PA, 66053-000
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Segunda a Sábado, das 10:00 às 22:00; Domingo, 
-                            das 14:00 às 20:0</h7><br>
-                            <h7>Serviços Oferecidos: Lojas, restaurantes, cinema, entretenimento infantil, estacionamento</h7><br><br>
-                        <h7>Contato: (91) 3199-8100                    </h7>
-                        <a href="https://boulevardbelem.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/WhatsApp-Image-2023-03-17-at-11.08.31-1024x682.jpeg" alt="">
-                    <div class="des">
-                        <h4 id="myh4"> Shopping Pátio Belém</h4><br>
-                        <h7>Endereço: Travessa Padre Eutíquio, 1078 - Batista Campos, Belém - PA, 66023-
-                            710                        
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Segunda a Sábado, das 10:00 às 22:00; Domingo, 
-                            das 14:00 às 20:00</h7><br>
-                            <h7>Serviços Oferecidos: Lojas, restaurantes, cinema, área de lazer</h7>
-                        <h7>Contato: : (91) 3182-4000
-                        </h7>
-                        <a href="https://www.patiobelem.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/thumb-a5a6db59fe381a98feec8f681d506012-202542.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Espaço Cultural Casa das Onze Janelas</h4><br>
-                        <h7> Endereço: Praça Justo Chermont, s/n - Cidade Velha, Belém - PA, 66020-300
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Terça a Domingo, das 09:00 às 18:0</h7><br>
-                        <h7>Serviços Oferecidos: arte moderna, contemporânea e fotografia, que apresentam obras de artistas locais e nacionais</h7><br><br>
-                        <h7>Contato:  (91)4006-2820</h7>
-                        <a href="https://museus.pa.gov.br/museus/6/espao-cultural-casa-das-onze-janelas" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/IMG_1517.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Mangal das Garças
-                        </h4><br>
-                        <h7>Passagem Carneiro da Rocha Ao Lado do Arsenal da Marinha Cidade Velha, Belém, Pará 66020-160 Brasil
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 8h00 - 18h00</h7><br>
-                        <h7>Serviços Oferecidos: Passeio, observação da natureza, áreas para piquenique</h7><br><br>
-                        <h7> Contato:  (91) 3344-0100</h7>
-                        <a href="https://www.mangaldasgarcas.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/caption.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Forte do Presépio</h4><br>
-                        <h7>Praça Dom Frei Caetano Brandão, s/n - Cidade Velha, Belém - PA, 66020-600
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias: das 09:00 às 17:00 (segunda-feira: fechado)</h7><br>
-                        <h7>Serviços Oferecidos: O Museu tem variedade, como material lítico, cerâmicas marajoara e tapajônica, coleção de muiraquitãs.</h7><br><br>
-
-                        <h7>Contato: (91)3284-1542</h7>
-                        <a href="https://museus.pa.gov.br/museus/7/museu-forte-do-prespio" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/2023-02-26.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Complexo Turístico do Ver-o-Rio</h4><br>
-                        <h7>Av. Mal. Hermes, 1374 - Umarizal, Belém - PA, 66645-745
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Aberto 24h </h7><br>
-                        <h7>Serviços Oferecidos: Passeio, observação da natureza, áreas para piquenique</h7><br><br>
-                        <h7>Contato: Não encontrado</h7>
-                        <a href="https://semob.belem.pa.gov.br/prefeitura-de-belem-entrega-complexo-turistico-ver-o-rio-totalmente-reformado-nesta-quinta-14/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/IMG_20221023_153630.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Orla de Icorace</h4><br>
-                        <h7>Rua Siqueira Mendes, Belém, Pará 66810-971 Brasil
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 09:00 às 21:00</h7><br>
-                        <h7>Serviços Oferecidos: Gastronomia Paraense, espaço para corrida, áreas para piquenique</h7><br><br>
-                        <h7>Contato:(91) 3182-8785                    </h7>
-                        <a href="https://guia.melhoresdestinos.com.br/orla-de-icoaraci-236-6604-l.html" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="product1" class="section-p1">
-            <h2>Gastronomic Experiences</h2>
-            <p>The the gastronomic experiences you must not miss</p>
-            <div class="pro-container">
-                <div class="pro">
-                    <img src="/assets/fachada.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Restaurant Ver-O-Açaí</h4><br>
-                        <h7>Tv. Dom Pedro I, 599 - Umarizal, Belém - PA, 66050-100
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias com horários diferentes</h7><br>
-                        <h7>Serviços Oferecidos: Gastronomia Paraense, espaço para corrida, áreas para piquenique</h7><br><br>
-                        <h7>Contato: (91)8431-0601</h7>
-                        <a href="https://www.instagram.com/veroacaibelem/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/famiglia-sicilia.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Famiglia Sicilia</h4><br>
-                        <h7>Avenida Conselheiro Furtado 1420 Batista Campos, Belém, Pará 66035-435 Brasil
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 19:00 às 23:30</h7><br>
-                        <h7>Serviços Oferecidos: Gastronomia Italiana Europeia</h7><br><br>
-                        <h7>Contato: (91)4008-0001</h7>
-                        <a href="https://famigliasicilia.com/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/grand-cru-belem-1.jpeg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Restaurant Grand Cru</h4><br>
-                        <h7>Av. Brás de Aguiar, 50 Nazaré, Belém, Pará 66035-385 Brasil
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 10:00 às 23:00</h7><br>
-                        <h7>Serviços Oferecidos: Gastronomia Europeia, Wine Bar</h7><br><br>
-                        <h7>Contato: (91)3212-7002</h7>
-                        <a href="https://www.instagram.com/grandcru.belem/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/reforma-do-sushi-ruy.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Sushi Ruy Barbosa</h4><br>
-                        <h7>Tv. Rui Barbosa, 1816 Entre Conselheiro Furtado e Rua dos Mundurucus, Belém, Pará 66035-444 Brasil
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 12:00 às 00:00</h7><br>
-                        <h7>Serviços Oferecidos: Gastronomia Japonesa e Asiática</h7><br><br>
-                        <h7>Contato: (91)98249-8434</h7>
-                        <a href="https://www.instagram.com/sushiruybarbosa/?hl=pt" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/255954087_4679449448779403_338588318517417867_n.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">A Forneria
-                        </h4><br>
-                        <h7>Tv, Antônio Barreto 948, Umarizal Esquina com Tv. 14 de Março, Belém, Pará 66055-050
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 19::00 às 23:30</h7><br>
-                        <h7>Serviços Oferecidos: Gastronomia Italiana e Sul-Americana</h7><br><br>
-                        <h7> Contato: (91) 3223-1280</h7>
-                        <a href="https://www.instagram.com/aforneria/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/717_chef_thiago_castanho_01-600x391.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Restaurante Remanso do Peixe
-                        </h4><br>
-                        <h7>Endereço: Av. Gov. José Malcher, 993 - Nazaré, Belém - PA, 66035-045
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Todos os dias, das 11:00 às 22:00
-                        </h7><br>
-                            <h7>Serviços Oferecidos: Esspecialidades são com Peixes e frutos do mar</h7><br><br>
-                        <h7>Contato: (91)3219-8112</h7>
-                        <a href="https://www.instagram.com/remansodopeixe/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/8924797_NKQJ7OxUPZWvYWiF9sF51Gi_YHeiu7Ay1H-l33zz2YQ.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Rosario Lanches</h4><br>
-                        <h7>R. Arcipreste Manoel Teodoro, 1020 - Campina, Belém - PA, 66015-040
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: terça a domingo das 17h à 0:30h</h7><br>
-                            <h7>Serviços Oferecidos:  O lanche de rua mais famoso e prestigiado de belém</h7><br><br>
-                        <h7>Contato: (91) 3225-0977</h7>
-                        <a href="https://www.instagram.com/rosariolanchesoficial/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-                <div class="pro">
-                    <img src="/assets/photo2jpg.jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Restaurante Manjar das Garças</h4><br>
-                        <h7> Av. Gov. Magalhães Barata, s/n - Comércio, Belém - PA, 66093-360
-                        </h7><br>
-                        <br><h7>00</h7><br>
-                        <h7>Especialidades: Culinária amazônica, peixes e frutos do mar</h7><br><br>
-                        <h7>Contato:(91) 3184-9300 </h7>
-                        <a href="https://www.instagram.com/manjardasgarcasoficial/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="product1" class="section-p1">
-            <h2>Hospitals in Belém</h2>
+            <h2>Burgers</h2>
             <p></p>
             <div class="pro-container">
                 <div class="pro">
-                    <img src="/assets/Guadalupe-foto (1).jpg" alt="">
+                    <img src="/assets/cheddarburguer.jpg" alt="">
                     <div class="des">
-                        <h4 id="myh4">Hospital Guadalupe</h4><br>
-                        <h7>R. Arcipreste Manoel Teodoro, 734 - Batista Campos, Belém - PA, 66015-040
+                        <h4 id="myh4">Cheddar</h4><br>
+                        <h7>Pão Australiano, Maionese da Casa, Hambúrguer, Cheddar, Cebola caramelizada e Bacon crocante.
                         </h7><br>
-                        <br><h7>Horário de Funcionamento: Atendimento 24 horas</h7><br>
-                        <h7>Especialidades: Atendimento médico geral, emergências, cirurgias</h7><br><br>
-                        <h7>Contato:(91) 4005-9877
-                        </h7>
-                        <a href="https://www.instagram.com/hospital.guadalupe.belem/" target="_blank"><i class="bi bi-plus"></i></a>
+                        <br>.<h7>40,00R$</h7><br><br>
+                        <h7></h7>
+
                     </div>
                 </div>
                 <div class="pro">
-                    <img src="/assets/fotos-3-clicks-41_243827fe1cfa98a266b561a025611a25.jpg" alt="">
+                    <img src="/assets/catupiry-com-bacon_94221992f9de5bfeb53cc0b2224a9bf8__800x600__0x0.jpg" alt="">
                     <div class="des">
-                        <h4 id="myh4">Hospital Porto Dias</h4><br>
-                        <h7>Endereço: Av. Magalhães Barata, 651 - São Brás, Belém - PA, 66060-240.
+                        <h4 id="myh4">CATUPIRY COM BACON</h4><br>
+                        <h7>Pão da Casa, Molho de Tomate Le Pinguê, Hambúrguer, Catupiry e Bacon crocante.
                         </h7><br>
-                        <br><h7>Horário de Funcionamento: Atendimento 24 horas.</h7><br>
-                        <h7>Especialidades: Clínica médica, cirurgias, emergências.</h7><br><br>
-                        <h7>Contato: (91) 4008-2100 </h7>
-                        <a href="https://www.hpd.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
+                        <br><h7>35,00R$</h7><br><br>
+                        <h7></h7> 
                     </div>
                 </div>
                 <div class="pro">
-                    <img src="/assets/fachada_b0124123791a2eeafef6c74641c745a8.jpg" alt="">
+                    <img src="/assets/smash-bacon_47bf01557d99c817c69b82e959549ecb__800x600__0x0.jpg" alt="">
                     <div class="des">
-                        <h4 id="myh4">Hospital Beneficente Portuguesa</h4><br>
-                        <h7>Endereço: Av. Generalíssimo Deodoro, 70 - Umarizal, Belém - PA, 66050-160
+                        <h4 id="myh4">SMASH BACON</h4><br>
+                        <h7>Pão Especial, Maionese da Casa, Hambúrguer prensado, Queijo Cheddar e Bacon em tiras.
                         </h7><br>
-                        <br><h7>Horário de Funcionamento: Atendimento 24 horas</h7><br>
-                        <h7> Especialidades: Atendimento médico geral, emergências, cirurgias</h7><br><br>
-                        <h7>Contato: (91) 3222-7711</h7>
-                        <a href="https://www.beneficenteportuguesa.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
+                        <br><h7>25,00R$</h7><br><br>
+                        <h7></h7>
                     </div>
                 </div>
                 <div class="pro">
-                    <img src="/assets/cropped-logo-hmsf-hospital-e-maternidade-sagrada-familia-plih6e4eqovd00pv77pezo7ht41uf6uua95rtuq94g.png" alt="">
+                    <img src="/assets/duplo-bacon_ca3908e0d94d46afac3781d82ce01f0a__800x600__0x0.jpg" alt="">
                     <div class="des">
-                        <h4 id="myh4"> Hospital e Maternidade Sagrada Família</h4><br>
-                        <h7>Endereço: Av. Gentil Bittencourt, 1195 - Nazaré, Belém - PA, 66035-440
+                        <h4 id="myh4">DUPLO BACON</h4><br>
+                        <h7> Pão da Casa, Molho de Queijo, dois Hambúrgueres, Queijo Prato, Ketchup Le Pinguê e Bacon em tiras.
                         </h7><br>
-                        <br><h7>Horário de Funcionamento: Atendimento 24 horas</h7><br>
-                        <h7> Especialidades: Obstetrícia, pediatria, emergências médicas</h7><br><br>
-                        <h7>Contato: Especialidades: Obstetrícia, pediatria, emergências médicas
-                        </h7>
-                        <a href="https://hmsf.com.br/new/" target="_blank"><i class="bi bi-plus"></i></a>
+                        <br><h7>40,00R$</h7><br><br>
+                        <h7></h7>
+                    </div>
+                </div>
+                
+               
+
+        <section id="product1" class="section-p1">
+            <h2> Bebidas</h2>
+            <p></p>
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="/assets/agua-com-e-sem-gas_19b3d1073e4ebc83e6392331f4d11565__800x600__0x0.jpg" alt="">
+                    <div class="des">
+                        <h4 id="myh4">ÁGUA COM E SEM GÁS</h4><br>
+                        <h7>Com gás ou sem gás? Refresque-se com sua água favorita.</h7><br><br>
+                        <h7>5,00R$</h7><br><br>
+                        <h7></h7><br><br>
+                        <h7></h7>
                     </div>
                 </div>
                 <div class="pro">
-                    <img src="/assets/upa (1).jpg" alt="">
+                    <img src="/assets/refrigerantes_99df518e5874b138c89fb300feeb24f4__800x600__0x0.jpg" alt="">
                     <div class="des">
-                        <h4 id="myh4">Unidade de Pronto Atendimento (UPA) de Icoaraci
-                        </h4><br>
-                        <h7>Endereço: Av. Gov. José Malcher, 336 - Icoaraci, Belém - PA, 66813-670
+                        <h4 id="myh4">REFRIGERANTES</h4><br>
+                        <h7>Naquelas horas que bate uma vontade de beber um refrigerante geladinho, não adianta tentar: é impossível resistir!
                         </h7><br>
-                        <br><h7>Horário de Funcionamento: Atendimento 24 horas</h7><br>
-                        <h7> Especialidades: Pronto atendimento médico, urgências</h7><br><br>
-                        <h7> Contato: (91) 3227-1102
-                        </h7>
-                        <a href="https://sesma.belem.pa.gov.br/fale-conosco/unidades-de-pronto-atendimento-upa/"><i class="bi bi-plus"></i></a>
+                        <br><h7>7,00R$</h7><br>
+                            <h7></h7><br><br>
+                        <h7></h7>
                     </div>
                 </div>
                 <div class="pro">
-                    <img src="/assets/2024-04-18.png" alt="">
+                    <img src="/assets/sucos-del-valle-e-integral_01fdf14256c6158c536ca3930fa4bc4e__800x600__0x0.jpg" alt="">
                     <div class="des">
-                        <h4 id="myh4"> Laboratório Sabin</h4><br>
-                        <h7>Endereço: Av. Generalíssimo Deodoro, 1137 - Umarizal, Belém - PA, 66050-160
-                        </h7><br>
-                        <br><h7>Horário de Funcionamento: Segunda a Sexta, das 06:00 às 18:00; Sábado, das 06:00 às 12:00</h7><br>
-                        <h7>Serviços Oferecidos: Exames laboratoriais                    </h7><br><br>
-                        <h7>Contato:  (91)3199-0101</h7>
-                        <a href="https://www.sabin.com.br/?gclid=CjwKCAjw26KxBhBDEiwAu6KXt8RKFiFgISADPixKFBTVAjqLlpCy25ly8HzCE0ffEmuJV649ugcBohoC5cQQAvD_BwE&cidade=brasilia-df" target="_blank"><i class="bi bi-plus"></i></a>
+                        <h4 id="myh4"> SUCO INTEGRAL</h4><br>
+                        <h7>Sucos Del Valle e Prat's refrescante em qualquer hora. </h7><br>
+                        <br><h7>7,00R$</h7><br>
+                            <h7></h7>
+                        <h7></h7>
                     </div>
                 </div>
                 <div class="pro">
-                    <img src="/assets/2024-04-09.jpg" alt="">
+                    <img src="/assets/heineken-e-sol-long-neck_3ab2618f60115038c3a86b179fa77cc3__800x600__0x0.jpg" alt="">
                     <div class="des">
-                        <h4 id="myh4">Clínica de Olhos do Pará</h4><br>
-                        <h7>Endereço: Av. Generalíssimo Deodoro, 1100 - Umarizal, Belém - PA, 66055-230
+                        <h4 id="myh4">LONG NECK</h4><br>
+                        <h7>  Long Neck estupidamente gelada, acompanhamento perfeito para sua porção.
                         </h7><br>
-                        <br><h7>Horário de Funcionamento: Segunda a Sexta, das 08:00 às 18:00; Sábado, das 
-                            08:00 às 12:00</h7><br>
-                            <h7> Especialidades: Oftalmologia, exames de vista
-                            </h7><br><br>
-                        <h7>Contato: (91) 3225-0101
-                        </h7>
-                        <a href="https://www.instagram.com/clinicadeolhospara/" target="_blank"><i class="bi bi-plus"></i></a>
+                        <br><h7>15,00R$</h7><br>
+                        <h7></h7><br><br>
+                        <h7></h7>
                     </div>
                 </div>
-                <div class="pro">
-                    <img src="/assets/01-1024x576 (2) (1).jpg" alt="">
-                    <div class="des">
-                        <h4 id="myh4">Hospital da Ordem Terceira</h4><br>
-                        <h7>Endereço: R. João Diogo, 234 - Cidade Velha, Belém - PA, 66020-540
-                        </h7><br>
-                        <br><h7> Horário de Funcionamento: Atendimento 24 horas</h7><br>
-                        <h7> Especialidades: Atendimento médico geral, emergências, cirurgias
-                        </h7><br><br>
-                        <h7>Contato: (91)3210-8000</h7>
-                        <a href="https://hospitalordemterceira.com.br/" target="_blank"><i class="bi bi-plus"></i></a>
-                    </div>
-                </div>
-            </div>
         </section>
-    </section>
-    <footer class="section-p1">
-        <div class="col">
-            <img class="logo" src="/assets/logo.png" alt="">
-            <h4>Contact</h4>
-            <p><strong>Address:</strong> somewhere in Belém of Pará </p>
-            <p><strong>Phone:</strong> +55 (91)98551-5933</p>
-            <p><strong>E-mail:</strong> mazzahudson05@outlook.com</p>
-            
-            <div class="follow">
-                <h4>Follow us</h4>
-                <div class="icon">
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-youtube"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-pinterest"></i>
-                    <i class="fab fa-twitter"></i>
+
+        <section id="product1" class="section-p1">
+            <h2>Entradas</h2>
+            <p></p>
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="/assets/aneis-de-cebola_b0f12dba730bce1241701293db481579__800x600__0x0.jpg" alt="">
+                    <div class="des">
+                        <h4 id="myh4">ANÉIS DE CEBOLA</h4><br>
+                        <h7>Cortadas em forma de anéis, empanadas com uma leve camada de farinha de rosca já temperada. Acompanha Maionese de Pimenta.
+                        </h7><br>
+                        <br><h7>20,00R$</h7><br>
+                        <h7></h7><br><br>
+                        <h7></h7>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <h4>About</h4>
-            <a href="about.html">About Us</a>
-            <a href="#">Privacy Police</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact Us</a>
-        </div>
-
-        <div class="col">
-            <h4>Account</h4>
-            <a href="/views/login"> Sign In</a>
-            <a href="/views/pontos-turistico">View tourists points</a>
-            <a href="/views/interest">View interesting points</a>
-            <a href="#">Help</a>
-        </div>
-            <div class="copyright">
-                <p>@ 2024, Belem-Guide</p>
-            </div>
-        </div>
-
-
-    </footer>
+                <div class="pro">
+                    <img src="/assets/batata-rustica-_ed89a72c795ff7af54774a4a8c60a6eb__800x600__0x0.jpg" alt="">
+                    <div class="des">
+                        <h4 id="myh4">BATATA RÚSTICA</h4><br>
+                        <h7>Acompanhamento perfeito, traz um sabor único além de ser muito gostosa e cremosa por dentro. Acompanha Maionese da Casa.</h7><br>
+                        <br><h7>20,00R$</h7><br>
+                        <h7></h7><br><br>
+                        <h7></h7>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="/assets/fritas-com-molho-de-queijo-e-bacon_f59e9618a1c56ac713a77049927642c7__800x600__0x0.jpg" alt="">
+                    <div class="des">
+                        <h4 id="myh4">FRITAS COM MOLHO DE QUEIJO E BACON</h4><br>
+                        <h7>Aquela batatinha irresistível que você já conhece, coberta com molho de queijo cremoso e pedacinhos de bacon.</h7><br>
+                        <br><h7>25,00R$</h7><br>
+                        <h7></h7><br><br>
+                        <h7></h7>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="/assets/palitos-de-mucarela_7587787b1577a8699d34843005605ea3__800x600__0x0.jpg" alt="">
+                    <div class="des">
+                        <h4 id="myh4">PALITOS DE MUÇARELA</h4><br>
+                        <h7>Aqueles Palitos de Muçarela crocantes, temperados e deliciosos que você respeita! Acompanha Maionese de Pimenta.
+                        </h7><br>
+                        <br><h7>25,00R$</h7><br>
+                        <h7></h7><br><br>
+                        <h7></h7>
+                    </div>
+                </div>
+    </section>
+    
         <div id="info-container">
         </div>
             
@@ -499,86 +256,43 @@
     </section>
     <script>
 
-        function showInfo(event) {
-            var img = event.currentTarget.querySelector('img').getAttribute('src');
-            var title = event.currentTarget.querySelector('h4').innerText;
-            var address = event.currentTarget.querySelector('h7:nth-of-type(1)').innerText;
-            var hours = event.currentTarget.querySelector('h7:nth-of-type(2)').innerText;
-            var contact = event.currentTarget.querySelector('h7:nth-of-type(3)').innerText;
-        
-            document.getElementById('info-container').innerHTML = `
-                <h2>${title}</h2>
-                <img src="${img}">
-                <p><strong> ${address}</p>
-                <p><strong>Horário de Funcionamento:</strong> ${hours}</p>
-                <p><strong>Contato:</strong> ${contact}</p>
-                <button id="rota" data-address="${address}">Traçar Rota</button>
-            `;
-            document.getElementById('info-container').style.right = '0';
-            document.getElementById('content').classList.add('content-left');
-        
-            var proDivs = document.querySelectorAll('.pro-container');
-            proDivs.forEach(function(div) {
-                div.style.width = 'calc(100% - 200px)';
-                document.getElementById('content').style.left = '-30px';
-            });
-        
-        };
-
-        
-        var proDivs = document.querySelectorAll('.pro');
-        
-        proDivs.forEach(function(div) {
-            div.addEventListener('click', showInfo);
-        });
-        document.getElementById('info-container').addEventListener('click', function(event) {
-            if (event.target && event.target.id === 'rota') {
-                document.getElementById('container-map').style.display = 'block';
-                document.getElementById('map').style.display = 'block';
-                document.getElementById('map').style.position = 'fixed';
-                document.getElementById('map').style.zIndex = '9999';
-                var address = event.target.getAttribute('data-address');
-                var geocoder = new google.maps.Geocoder();
-                geocoder.geocode({ 'address': address }, function(results, status) {
-                    if (status == 'OK') {
-                        var map = new google.maps.Map(document.getElementById('container-map'), {
-                            zoom: 12,
-                            center: results[0].geometry.location
-                        });
-
-                        var directionsService = new google.maps.DirectionsService();
-                        var directionsDisplay = new google.maps.DirectionsRenderer({
-                            map: map
-                        });
-
-                        var request = {
-                            origin: "Unama - Alcindo Cacela, Belém, Brasil",
-                            destination: address,
-                            travelMode: 'DRIVING'
-                        };
-
-                        directionsService.route(request, function(result, status) {
-                            if (status == 'OK') {
-                                directionsDisplay.setDirections(result);
-                            } else {
-                                window.alert('Não foi possível calcular a rota: ' + status);
-                            }
-                        });
-                        
-                    } else {
-                        window.alert('Endereço não encontrado: ' + status);
-                    }
-                });
-                
-            }
+        const listItens= []
+         document.addEventListener('DOMContentLoaded', () => {
+            const selectedItems = [];
+            const proElements = document.querySelectorAll('.pro');
             
-        });
-        </script>
+            proElements.forEach(pro => {
+                pro.addEventListener('click', () => {
+                    const itemName = pro.querySelector('h4').innerText;
+                    selectedItems.push(itemName);
+                    listItens.push({"nome": itemName})
+                    alert(itemName + " foi adicionado ao carrinho!");
+                });
+            });
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmemBTMviCF-LjvynRkUxSoTd5SE1joEA&callback"></script>
+            document.getElementById('viewCart').addEventListener('click', () => {
+                if (selectedItems.length > 0){
+                let cartContent = "Itens no carrinho:\n";
+                selectedItems.forEach(item => {
+                    cartContent += "- " + item + "\n";
+                });
+                alert(cartContent);
+                } else {
+                    alert("Você não tem itens no carrinho")}
+            });
+        });
         
 
-    
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////
+
+
+        </script>  
        
 </body>
 </html>

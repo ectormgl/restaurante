@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
-    <link rel="icon" type="image/png" href="https://cdn.outback.com.br/wp-data/wp-content/themes/outback_2022/assets/images/outback-logo.png">
     <link rel="stylesheet" href="/css/a_style.css">
     <link rel="stylesheet" href="/css/about-last.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
@@ -147,34 +146,66 @@
             #header {
                 display: none;
             }
-            .reservation-container {
-                margin-top: 16%;
-            }
+        }
+
+        @media (max-width: 480px) {
             #responsive {
                 display: block;
             }
 
+            .everyback {
+                margin-top: 13%;
+            }
+
         }
 
-        
     </style>
 </head>
 <body>
-<!-- Esse abaixo é o autor de um dos elementos do bootstrap usado abaixo. Esse, em específico foi a navbar responsiva-->
+    <!-- 
+            !!!IMPORTANT!!! REMOVE .active FROM #sidebar RIGHT NOW!!!
+
+<!---toggleNav() adds .active to "sidebar", changing left:-500px; to left:0px; 
+<!----Meta - DO NOT DELETE 
 <!-----AUTHOR: Kris J. Baillargeon, KJRBWebDesign.com, kris@kjrbwebdesign.com, krisb1220@gmail.com
 <!-----DATE: 10/2/17
-<!-----INCLUDED FILES: Vertical Nav widget, Vertical-Nav.CSS, Vertical-Nav.js -->
- 
-<section id="header">
-        <img src="https://cdn.worldvectorlogo.com/logos/outback-steakhouse-3.svg" alt="Outback Logo" title="Outback Logo"  style="width: 125px; height:60px;">
+<!-----INCLUDED FILES: Vertical Nav widget, Vertical-Nav.CSS, Vertical-Nav.js 
 
+ -->
+ <div id="responsive">
+<a id="nav-toggle" title="Toggle Navigation" onclick="toggleNav()"> <i class="toggle-bar fa fa-bars"></i></a> <!--Toggle Button-->
+
+<div id="sidebar" class="">
+    
+    <ul>
+        <img src="kjrb.png" alt="KJRB Web Design" title="KJRB Web Design logo" />
+        <li><a class="here" href="#">Lorem A</a></li>
+        <li><a href="#">Lorem 1</a></li>
+        <li><a href="#">Lorem 2</a></li>
+        <li><a href="#">Lorem 3</a></li>
+        <li><a href="#">Lorem 4</a></li>
+        
+        <div class="contact-info">
+            <p>21 North Ipsem Ln</p>
+            <p>Lorem LI, USA 09876</p>
+            <p>555-123-4321</p>
+        </div>
+        <p class="text-center social-links">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-linkedin"></i></p>
+    </ul>
+</div>
+</div>
+<section id="header">
+        <a href="#"><img class="logo"></a>
         <div>
             <ul id="navbar">
-                        
-				<li><a class="here" href="/">Home</a></li>
-				<li><a href="/views/cardapio">Cardápio</a></li>
-				
-				<li><a href="/views/about">Sobre nós</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/views/interest">Pontos de Interesse</a></li>
+                <li><a href="/views/pontos-turistico">Pontos Turísticos</a></li>
+                <li><a href="/views/about">About Us</a></li>
                 <li><button onclick="showreservations()" id="showOverlay">Minhas reservas</button></li>
             </ul>
         </div>
@@ -186,31 +217,6 @@
     
     <div id="overlayContainer"></div>
     <div class="everyback">
-        <div id="responsive">
-<a id="nav-toggle" title="Toggle Navigation" onclick="toggleNav()"> <i class="toggle-bar fa fa-bars"></i></a> <!--Toggle Button-->
-
-<div id="sidebar" class="">
-    
-    <ul>
-        <img src="https://cdn.worldvectorlogo.com/logos/outback-steakhouse-3.svg" alt="Outback Logo" title="Outback Logo" / style="width: 125px; height:60px;">
-        <li><a class="here" href="/">Home</a></li>
-        <li><a href="/views/cardapio">Cardápio</a></li>
-        <li><a href="/reserva">Reservas</a></li>
-        <li><a href="/views/about">Sobre nós</a></li>
-        
-        
-        <div class="contact-info">
-            <p>Unama, Alcindo Cacela, Bélem</p>
-            
-        </div>
-        <p class="text-center social-links">
-            <a href="https://www.facebook.com/outbackbrasil/"><i class="fa fa-facebook" ></i></a>
-            <a href="https://www.instagram.com/outbackbrasil/"><i class="fa fa-instagram"></i></a>
-            <a href="https://x.com/OutbackBrasil"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/company/outbackbrasil/"><i class="fa fa-linkedin"></i></p></a>
-    </ul>
-</div>
-</div>
         <div class="reservation-container">
             <h2>Reserve sua mesa!</h2>
             <form action="/reservar" method="post" class="reserv">

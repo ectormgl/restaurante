@@ -268,7 +268,7 @@ body::before {
 }
 
 .history {
-  background-image: url(1.png);
+  background-image: url(/css/1.png);
   background-size: 100%;
   background-position: right center;
   background-repeat: no-repeat; /* Evita que a imagem seja repetida */
@@ -277,7 +277,16 @@ body::before {
   background-size: auto 60%; /* Ajusta a altura da imagem */
 
 }
+@media (max-width: 768px) {
+  .history {
+    padding: 0%;
+    background-size: 200%;
+  }
+  #moveColor{
+    color: #fff;
+  }
 
+}
 
 .history-content {
   max-width: 1200px;

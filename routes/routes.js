@@ -23,6 +23,7 @@ router.get("/loginreq", (req, res)=>{
     res.render("login-required")
 })
 
+
 router.get("/views/register", (req, res) => {
     res.render("register");
 });
@@ -33,6 +34,10 @@ router.get("/views/login", (req, res) => {
 
 router.get("/views/cardapio", (req, res) => {
     res.render("cardapio");
+});
+
+router.get('/delivery', (req, res) => {
+    res.render('delivery');
 });
 
 router.get("/views/pontos-turistico", (req, res) => {
@@ -98,14 +103,12 @@ router.post("/auth/login", (req, res) => {
         if (passwordMatch) {
             const token = jwt.sign({ id: user.id, username: user.username }, secretKey, { expiresIn: '1h' });
             res.cookie('token', token, { httpOnly: true });
-            tkn= true;
             return res.render('private', {tkn: true, username:user.username});
         } else {
-            return res.render('login', { message: "Senha incorreta", success: false, tkn: false});
+            return res.render('login', { message: "Senha incorreta", success: false });
         }
     });
 });
-
 function authenticateToken(req, res, next) {
     const token = req.cookies.token;
     if (!token) return res.render('negative');
@@ -129,6 +132,7 @@ router.get('/profile', authenticateToken, (req, res) => {
         });
     });
 });
+
 router.post('/logout', (req, res) => {
     res.clearCookie('token'); 
     res.redirect('/'); 
@@ -173,6 +177,7 @@ router.post('/reservar', authenticateToken, (req, res) => {
         
     });
 });
+
 
 router.post('/showreservations', authenticateToken, (req, res) =>{
     const userId = req.user.id;
@@ -252,6 +257,13 @@ function showreservations() {
     })
     .catch(error => console.error('Erro ao buscar reservas:', error));
 }
+
+
+router.post('/deliver', (req, res) => {
+    res.render('delivery')
+});
+
+
 
 
 ////////////////////////////

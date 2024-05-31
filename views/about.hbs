@@ -11,9 +11,36 @@
     <link rel="stylesheet" href="/css/about-last.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        
+#header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  background: sienna;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 50px;
+}
+    </style>
 </head>
 <body>
-    
+    <section id="header">
+        <img src="https://cdn.worldvectorlogo.com/logos/outback-steakhouse-3.svg" alt="Outback Logo" title="Outback Logo"  style="width: 125px; height:60px;">
+        <div>
+            <ul id="navbar">
+                
+				<li><a class="here" href="/">Home</a></li>
+				<li><a href="/views/cardapio">Cardápio</a></li>
+				<li><a href="/reserva">Reservas</a></li>
+				<li><a href="/views/about">Sobre nós</a></li>
+            </ul>
+        </div>
+    </section>
     <section id="page-header" class="about-header">
         <h2>#Sobre Nós</h2>
         <p>Quem desenvolveu esse site e porquê?</p>

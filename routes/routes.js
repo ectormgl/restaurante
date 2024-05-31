@@ -274,4 +274,6 @@ router.post('/deliver', (req, res) => {
 router.use((req, res) => {
     res.status(404).render('notFound'); // Renderiza a página de erro 404
 });
+
+
 module.exports = router;
